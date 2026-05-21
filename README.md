@@ -1,31 +1,48 @@
 # Fitcha Website
 
-R&D Formulation Nexus is a single-page CSV analysis dashboard for a high-protein, plant-based milk tea concept. Upload Google Form responses (CSV) to compare tea directions and generate a first-pass formulation range for a 20 g protein RTD milk tea.
+![Fitcha product mockup](products/Fitcha-Wrapped.png)
 
-## Features
+Fitcha Website is a single-page CSV analysis dashboard for a high-protein, plant-based milk tea concept. Upload Google Form responses to compare tea directions, see the top product direction, and generate a first-pass formulation guide.
 
-- CSV upload and drag-and-drop support
-- Example data loader and exportable analysis CSV
-- Mobile-friendly layout with readable cards and tables
-- Compatibility scoring across four tea directions: Oolong, Jasmine, Hojicha, Thai Tea
-- Summary outputs: market gap signals, dominant decision signals, masking fit, AI reasoning
-- Recommended formulation range with ingredient levers and process flow
+## Highlights
 
-## How it works
+- Modern landing dashboard with entrance animation
+- EN / ID language toggle
+- CSV upload with drag-and-drop support
+- "Get started" button that scrolls users to the upload box
+- Product mockups for Oolong, Jasmine, Hojicha, and Thai Tea
+- Top Direction result now shows the matching product photo
+- Compatibility scoring for Oolong, Jasmine, Hojicha, and Thai Tea
+- Summary outputs for market gap, decision signals, masking fit, and formulation reasoning
 
-- Reads Google Form CSV rows and maps answers to flavor/texture signals
-- Scores each tea direction on sensory-word fit, masking fit, market gap fit, and formulation fit
-- Ranks directions, surfaces risks (beany, chalky, bitter, sweet), and suggests formulation ranges
+## Formulation Update
 
-## Local preview
+The latest formulation model uses:
 
-Open `index.html` directly in a browser, or use a simple static server.
+- Fixed serving size: 300 mL
+- Protein target: 20 g protein
+- Pea protein isolate: 22.2 g, based on 90% protein yield
+- Added oat milk, inulin, stevia + erythritol, water top-up, and estimated calories
+
+## Local Preview
+
+Open `index.html` directly in a browser, or run a simple static server:
+
+```bash
+python -m http.server 4173
+```
+
+Then open:
+
+```text
+http://localhost:4173
+```
 
 ## Deploy to Vercel
 
 1. Push this repo to GitHub.
 2. In Vercel, click "Add New" -> "Project".
-3. Import the repo and keep the framework as "Other" (static).
+3. Import the repo and keep the framework as "Other" or static.
 4. Build command: leave empty.
 5. Output directory: leave empty.
 6. Deploy.
@@ -33,6 +50,6 @@ Open `index.html` directly in a browser, or use a simple static server.
 ## Notes
 
 - The app runs entirely in the browser. No backend required.
-- CSV must be exported from Google Forms (CSV format).
+- CSV should be exported from Google Forms / Google Sheets.
 - Output is an AI-assisted estimate, not a validated sensory result.
-- This project is from Gari/Arinal Haq Team, @Tiyouw only helping with the improve & deployments.
+- This project is from Gari/Arinal Haq Team; @Tiyouw helps with improvements and deployment.

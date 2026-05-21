@@ -10,6 +10,12 @@
 </head>
 <body>
 <div class="entrance" id="entrance" aria-hidden="true">
+  <div class="entrance-products">
+    <img src="products/OOLONG TEA.png" alt="">
+    <img src="products/JASMINE MILK.png" alt="">
+    <img src="products/HOJICHA.png" alt="">
+    <img src="products/THAI TEA.png" alt="">
+  </div>
   <div class="entrance-mark"><img src="fitcha-logo-white.svg" alt=""></div>
   <div class="entrance-copy">
     <span data-i18n="entranceKicker">Fitcha Research Studio</span>
@@ -37,7 +43,13 @@
         <p class="eyebrow" data-i18n="heroEyebrow">Consumer concept intelligence</p>
         <h1 data-i18n="heroTitle">High-protein milk tea formulation dashboard</h1>
         <p class="sub" data-i18n="heroSub">Upload Google Form responses to compare Oolong, Jasmine, Hojicha, and Thai Tea compatibility scores, then generate starting formulation ranges for a 20 g plant-protein milk tea.</p>
+        <div class="hero-actions">
+          <a class="btn hero-cta" href="#upload-card" data-i18n="getStarted">Get started</a>
+        </div>
       </div>
+    </div>
+    <div class="hero-products" aria-label="Fitcha product mockups">
+      <img src="products/Fitcha-Wrapped.png" alt="Fitcha high protein tea bottle lineup">
     </div>
     <div class="hero-panel">
       <span data-i18n="modelLabel">Decision model</span>
@@ -45,7 +57,37 @@
     </div>
   </section>
 
-  <div class="card upload-card">
+  <section class="product-showcase" aria-labelledby="product-showcase-title">
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="productEyebrow">Prototype lineup</p>
+      <h2 id="product-showcase-title" data-i18n="productTitle">300 mL high-protein tea blend concepts</h2>
+      <p data-i18n="productSub">Four flavor directions are shown as market-ready mockups, matching the analysis model and the fixed 300 mL serving target.</p>
+    </div>
+    <div class="product-grid">
+      <article class="product-card">
+        <img src="products/OOLONG TEA.png" alt="Fitcha Oolong Tea bottle">
+        <h3>Oolong Tea</h3>
+        <p data-i18n="oolongProduct">Roasted, smooth, nutty milk-tea profile.</p>
+      </article>
+      <article class="product-card">
+        <img src="products/JASMINE MILK.png" alt="Fitcha Jasmine Milk bottle">
+        <h3>Jasmine Milk</h3>
+        <p data-i18n="jasmineProduct">Floral, fragrant, clean and lighter.</p>
+      </article>
+      <article class="product-card">
+        <img src="products/HOJICHA.png" alt="Fitcha Hojicha bottle">
+        <h3>Hojicha</h3>
+        <p data-i18n="hojichaProduct">Toasted tea character with premium depth.</p>
+      </article>
+      <article class="product-card">
+        <img src="products/THAI TEA.png" alt="Fitcha Thai Tea bottle">
+        <h3>Thai Tea</h3>
+        <p data-i18n="thaiProduct">Bold, creamy, spiced high-masking direction.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="card upload-card" id="upload-card">
     <p class="card-title">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       <span data-i18n="loadTitle">Load Google Form CSV</span>
@@ -87,6 +129,7 @@
   <div id="empty" class="empty" data-i18n="empty">No data loaded yet. Upload your Google Form CSV to display the tea-direction compatibility scores.</div>
   <div id="dash" style="display:none">
     <div id="overview" class="grid4"></div>
+    <div id="top-product" class="top-product"></div>
 
     <div class="card">
       <p class="card-title">
