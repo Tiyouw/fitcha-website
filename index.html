@@ -3,82 +3,148 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>R&D Formulation Nexus · CSV Concept Fit</title>
-<meta name="description" content="CSV-only AI concept-fit dashboard for high-protein plant-based milk tea based on Google Form responses." />
+<title>Fitcha Research Studio · Concept Fit Dashboard</title>
+<meta name="description" content="Bilingual CSV concept-fit dashboard for high-protein plant-based milk tea based on Google Form responses." />
 <link rel="icon" type="image/svg+xml" href="fitcha-logo.svg" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div class="wrap">
-  <div class="top">
+<div class="entrance" id="entrance" aria-hidden="true">
+  <div class="entrance-mark"><img src="fitcha-logo-white.svg" alt=""></div>
+  <div class="entrance-copy">
+    <span data-i18n="entranceKicker">Fitcha Research Studio</span>
+    <strong data-i18n="entranceTitle">Preparing your concept dashboard</strong>
+  </div>
+  <div class="entrance-line"><i></i></div>
+</div>
+
+<div class="wrap" id="app-shell">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="nav-brand" href="#">
+      <img src="fitcha-logo.svg" alt="Fitcha logo">
+      <span>Fitcha</span>
+    </a>
+    <div class="lang-switch" role="group" aria-label="Language switcher">
+      <button class="lang-btn active" type="button" data-lang="en">EN</button>
+      <button class="lang-btn" type="button" data-lang="id">ID</button>
+    </div>
+  </nav>
+
+  <section class="hero">
     <div class="brand">
       <div class="logo"><img src="fitcha-logo-white.svg" alt="Fitcha logo"></div>
-      <div><h1>R&D FORMULATION NEXUS: HIGH PROTEIN MILK TEA</h1><p class="sub">CSV-only concept-decision dashboard. Upload Google Form responses to compare Oolong, Jasmine, Hojicha, and Thai Tea compatibility scores and generate starting formulation ranges for a 20 g plant-protein milk tea.</p></div>
+      <div>
+        <p class="eyebrow" data-i18n="heroEyebrow">Consumer concept intelligence</p>
+        <h1 data-i18n="heroTitle">High-protein milk tea formulation dashboard</h1>
+        <p class="sub" data-i18n="heroSub">Upload Google Form responses to compare Oolong, Jasmine, Hojicha, and Thai Tea compatibility scores, then generate starting formulation ranges for a 20 g plant-protein milk tea.</p>
+      </div>
     </div>
-    <div class="pill"><strong>Decision model:</strong> indirect market-gap + flavor fit</div>
-  </div>
+    <div class="hero-panel">
+      <span data-i18n="modelLabel">Decision model</span>
+      <strong data-i18n="modelValue">Market gap + flavor fit + masking risk</strong>
+    </div>
+  </section>
 
   <div class="card upload-card">
-    <p class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Load Google Form CSV</p>
+    <p class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <span data-i18n="loadTitle">Load Google Form CSV</span>
+    </p>
     <div class="upload-intro">
-      <p class="muted">Upload the response CSV from Google Sheets. The dashboard will map the Indonesian Google Form answers into tea-direction compatibility scores.</p>
-      <div class="upload-badge">CSV only · up to ~5 MB</div>
+      <p class="muted" data-i18n="uploadIntro">Upload the response CSV from Google Sheets. The dashboard maps the answers into tea-direction compatibility scores.</p>
+      <div class="upload-badge" data-i18n="uploadBadge">CSV only · up to ~5 MB</div>
     </div>
     <div class="upload-layout">
       <label class="dropzone" id="dropzone" for="csv-file" aria-label="Drop or choose CSV file">
         <input id="csv-file" type="file" accept=".csv,text/csv">
-        <span class="drop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M5 20h14"/></svg></span>
+        <span class="drop-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M5 20h14"/></svg>
+        </span>
         <span class="drop-copy">
-          <span class="drop-kicker">Upload responses</span>
-          <strong>Drop your Google Form CSV here</strong>
-          <span>or click this panel to choose a file from your device.</span>
-          <span class="upload-cta">Choose CSV file</span>
+          <span class="drop-kicker" data-i18n="dropKicker">Upload responses</span>
+          <strong data-i18n="dropTitle">Drop your Google Form CSV here</strong>
+          <span data-i18n="dropSub">or click this panel to choose a file from your device.</span>
+          <span class="upload-cta" data-i18n="dropCta">Choose CSV file</span>
         </span>
       </label>
       <div class="upload-side">
         <div class="upload-steps">
-          <div class="upload-step"><b>1</b><span>Open Google Sheets responses.</span></div>
-          <div class="upload-step"><b>2</b><span>Go to File, Download, then Comma Separated Values.</span></div>
-          <div class="upload-step"><b>3</b><span>Upload the CSV here to generate the analysis.</span></div>
+          <div class="upload-step"><b>1</b><span data-i18n="step1">Open Google Sheets responses.</span></div>
+          <div class="upload-step"><b>2</b><span data-i18n="step2">Go to File, Download, then Comma Separated Values.</span></div>
+          <div class="upload-step"><b>3</b><span data-i18n="step3">Upload the CSV here to generate the analysis.</span></div>
         </div>
-        <div class="upload-hint">Works best with the current Indonesian Google Form columns. 1,000+ rows are OK.</div>
+        <div class="upload-hint" data-i18n="uploadHint">Works best with the current Google Form columns. 1,000+ rows are OK.</div>
         <div class="upload-actions">
-          <button class="btn secondary" id="load-example">Load example data</button>
-          <button class="btn secondary" id="clear-data" style="display:none">Clear data</button>
-          <button class="btn secondary" id="export-analysis" style="display:none">Export analyzed CSV</button>
+          <button class="btn secondary" id="load-example" data-i18n="loadExample">Load example data</button>
+          <button class="btn secondary" id="clear-data" style="display:none" data-i18n="clearData">Clear data</button>
+          <button class="btn secondary" id="export-analysis" style="display:none" data-i18n="exportCsv">Export analyzed CSV</button>
         </div>
       </div>
     </div>
-    <div id="status" class="status">Waiting for CSV. Dashboard will show compatibility score cards after loading.</div>
+    <div id="status" class="status" data-i18n="waiting">Waiting for CSV. Dashboard will show compatibility score cards after loading.</div>
   </div>
 
-  <div id="empty" class="empty">No data loaded yet. Upload your Google Form CSV to display the tea-direction compatibility scores.</div>
+  <div id="empty" class="empty" data-i18n="empty">No data loaded yet. Upload your Google Form CSV to display the tea-direction compatibility scores.</div>
   <div id="dash" style="display:none">
     <div id="overview" class="grid4"></div>
 
     <div class="card">
-      <p class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg>Tea direction compatibility</p>
+      <p class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg>
+        <span data-i18n="teaCompatibility">Tea direction compatibility</span>
+      </p>
       <div id="tea-grid" class="tea-grid"></div>
     </div>
 
     <div class="grid2">
-      <div class="card"><p class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/></svg>Market gap signals</p><div id="market" class="insights"></div></div>
-      <div class="card"><p class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18"/><path d="M12 3v18"/></svg>Dominant decision signals</p><div id="chips" class="chips"></div></div>
+      <div class="card">
+        <p class="card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/></svg>
+          <span data-i18n="marketSignals">Market gap signals</span>
+        </p>
+        <div id="market" class="insights"></div>
+      </div>
+      <div class="card">
+        <p class="card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18"/><path d="M12 3v18"/></svg>
+          <span data-i18n="decisionSignals">Dominant decision signals</span>
+        </p>
+        <div id="chips" class="chips"></div>
+      </div>
     </div>
 
     <div class="grid2">
-      <div class="card"><p class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>Estimated masking fit</p><div id="mask-metrics" class="grid3"></div><div id="mask-note" class="rec" style="margin-top:12px"></div></div>
-      <div class="card"><p class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V4h16v16z"/></svg>AI reasoning summary</p><div id="reasoning" class="rec-list"></div></div>
+      <div class="card">
+        <p class="card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+          <span data-i18n="maskingFit">Estimated masking fit</span>
+        </p>
+        <div id="mask-metrics" class="grid3"></div>
+        <div id="mask-note" class="rec" style="margin-top:12px"></div>
+      </div>
+      <div class="card">
+        <p class="card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V4h16v16z"/></svg>
+          <span data-i18n="reasoningSummary">AI reasoning summary</span>
+        </p>
+        <div id="reasoning" class="rec-list"></div>
+      </div>
     </div>
 
-    <div class="card"><p class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Recommended formulation range</p><div class="tablewrap"><table id="formula" class="tbl"></table></div></div>
-    <div class="grid2">
-      <div class="card"><p class="card-title">Ingredient increase / decrease levers</p><div id="levers" class="rec-list"></div></div>
-      <div class="card"><p class="card-title">Recommended process flow</p><div id="process" class="process"></div></div>
+    <div class="card">
+      <p class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <span data-i18n="formulaRange">Recommended formulation range</span>
+      </p>
+      <div class="tablewrap"><table id="formula" class="tbl"></table></div>
     </div>
-    <div class="card"><p class="card-title">Analyzed respondent table</p><div class="tablewrap"><table id="rows" class="tbl"></table></div></div>
+    <div class="grid2">
+      <div class="card"><p class="card-title" data-i18n="ingredientLevers">Ingredient increase / decrease levers</p><div id="levers" class="rec-list"></div></div>
+      <div class="card"><p class="card-title" data-i18n="processFlow">Recommended process flow</p><div id="process" class="process"></div></div>
+    </div>
+    <div class="card"><p class="card-title" data-i18n="respondentTable">Analyzed respondent table</p><div class="tablewrap"><table id="rows" class="tbl"></table></div></div>
   </div>
-  <div class="footer">Output is a lightweight AI decision-support estimate, not a validated sensory result. Prototype testing is still needed.</div>
+  <div class="footer" data-i18n="footer">Output is a lightweight AI decision-support estimate, not a validated sensory result. Prototype testing is still needed.</div>
 </div>
 <script src="app.js" defer></script>
 </body>
